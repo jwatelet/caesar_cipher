@@ -1,8 +1,12 @@
+NUMBER_OF_LETTERS = 26
+
 def caesar_cipher(string, shift)
+  shift %= NUMBER_OF_LETTERS
+
   string.chars.map do |char|
     if char?(char)
       char = shift(char, shift)
-      char = shift(char, -26) unless char?(char)
+      char = shift(char, -NUMBER_OF_LETTERS) unless char?(char)
     end
     char
   end.join
